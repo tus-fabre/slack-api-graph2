@@ -4,7 +4,7 @@
  * [FILE] app.js
  *
  * [DESCRIPTION]
- *  Lesson 7b - 複数のグラフを表示する
+ *  Lesson Graph 2 - 複数のグラフを表示する
  * 
  * [NOTE]
  */
