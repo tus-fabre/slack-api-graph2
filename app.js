@@ -106,9 +106,8 @@ app.command('/hello', async({ack, respond, command})=>{
     const config = await chartWeeklyConfiguration();
     const stream = await chartConfig2Stream(config);
     if (stream != null) {
-      const result = await app.client.files.upload({
-        channels: channel,
-        filetype: 'png',
+      const result = await app.client.files.uploadV2({
+        channel_id: channel,
         filename: 'simple_chart.png',
         file: stream
       });
@@ -264,12 +263,11 @@ app.action('action-csv-generate', async ({ body, ack, respond }) => {
   let message = '';
   if (csv_file != null) {
     try {
-      const result = await app.client.files.upload({
-        channels: channel,
-        filetype: 'csv',
+      const result = await app.client.files.uploadV2({
+        channel_id: channel,
         filename: csv_file,
         file: fs.createReadStream(csv_file)
-      })
+      });
       if (nodeEnv == 'development') console.log(result);
     } catch(err) {
       console.error(err.name + ": " + err.message);
@@ -397,9 +395,8 @@ app.action('action-graph-history', async ({ body, ack, respond }) => {
     const config = await chartMonthlyConfiguration(country);
     const stream = await chartConfig2Stream(config);
     if (stream != null) {
-      const result = await app.client.files.upload({
-        channels: channel,
-        filetype: 'png',
+      const result = await app.client.files.uploadV2({
+        channel_id: channel,
         filename: `${country}.png`,
         file: stream
       });
