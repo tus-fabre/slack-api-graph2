@@ -9,10 +9,10 @@
   "author": "TUS",
   "license": "ISC",
   "dependencies": {
-    "@slack/bolt": "^3.12.2",
+    "@slack/bolt": "^3.13.0",
     "chartjs-node-canvas": "^4.1.6",
     "date-utils": "^1.2.21",
     "dotenv": "^16.0.3",
-    "pg": "^8.8.0"
+    "pg": "^8.10.0"
   }
 }
